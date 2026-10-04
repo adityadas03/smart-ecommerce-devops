@@ -4,7 +4,7 @@ from passlib.context import CryptContext
 from jose import jwt
 from prometheus_fastapi_instrumentator import Instrumentator
 from typing import Dict
-
+import os
 
 app = FastAPI(
     title="Smart E-Commerce - User Service",
@@ -23,7 +23,7 @@ pwd_context = CryptContext(
     deprecated="auto"
 )
 
-SECRET_KEY = "smart-ecommerce-secret-key"
+SECRET_KEY = os.getenv("SECRET_KEY", "smart-ecommerce-dev-secret-key")
 ALGORITHM = "HS256"
 
 

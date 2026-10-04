@@ -13,6 +13,9 @@ services:
     ports:
       - "8001:8001"
 
+    environment:
+      SECRET_KEY: ${SECRET_KEY:-smart-ecommerce-dev-secret-key}
+
     networks:
       - smart-ecommerce-network
 
